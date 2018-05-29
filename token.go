@@ -80,13 +80,31 @@ func (rs *TokenStore) RemoveByCode(code string) (err error) {
 
 // RemoveByAccess Use the access token to delete the token information
 func (rs *TokenStore) RemoveByAccess(access string) (err error) {
-	err = rs.remove(access)
+	basicID, err := rs.getBasicID(access)
+	if err != nil || basicID == "" {
+		return
+	}
+	rs.remove(access)
+	ti, err := rs.getData(basicID)
+	if err == nil && ti != nil {
+		rs.remove(ti.GetRefresh())
+	}
+	err = rs.remove(basicID)
 	return
 }
 
 // RemoveByRefresh Use the refresh token to delete the token information
 func (rs *TokenStore) RemoveByRefresh(refresh string) (err error) {
-	err = rs.remove(refresh)
+	basicID, err := rs.getBasicID(refresh)
+	if err != nil || basicID == "" {
+		return
+	}
+	rs.remove(refresh)
+	ti, err := rs.getData(basicID)
+	if err == nil && ti != nil {
+		rs.remove(ti.GetAccess())
+	}
+	err = rs.remove(basicID)
 	return
 }
 
