@@ -1,4 +1,4 @@
-package redis
+package o2r
 
 import (
 	"encoding/json"
@@ -11,11 +11,11 @@ import (
 )
 
 // NewTokenStore Create a token store instance based on redis
-func NewTokenStore(cfg *Config) (ts oauth2.TokenStore, err error) {
+func NewTokenStore(cfg *redis.Options) (ts oauth2.TokenStore, err error) {
 	if cfg == nil {
 		panic("config cannot be nil")
 	}
-	cli := redis.NewClient(cfg.redisOptions())
+	cli := redis.NewClient(cfg)
 	if verr := cli.Ping().Err(); verr != nil {
 		err = verr
 		return

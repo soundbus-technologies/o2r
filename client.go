@@ -1,7 +1,7 @@
 // ouath2 client storage based on redis
 // authors: wongoo
 
-package redis
+package o2r
 
 import (
 	"gopkg.in/oauth2.v3"
@@ -22,11 +22,11 @@ type ClientValue struct {
 	UserID string `bson:"user_id" json:"user_id"`
 }
 
-func NewClientStore(cfg *Config) (clientStore *RedisClientStore, err error) {
+func NewClientStore(cfg *redis.Options) (clientStore *RedisClientStore, err error) {
 	if cfg == nil {
 		panic("config cannot be nil")
 	}
-	cli := redis.NewClient(cfg.redisOptions())
+	cli := redis.NewClient(cfg)
 	if verr := cli.Ping().Err(); verr != nil {
 		err = verr
 		return
@@ -59,14 +59,14 @@ func (cs *RedisClientStore) GetByID(id string) (cli oauth2.ClientInfo, err error
 	return
 }
 
-// Add or Update a client info
-func (cs *RedisClientStore) Add(client *models.Client) (err error) {
-	cv := &ClientValue{Secret: client.Secret, Domain: client.Domain, UserID: client.UserID}
+// Set set client information
+func (cs *RedisClientStore) Set(id string, cli oauth2.ClientInfo) (err error) {
+	cv := &ClientValue{Secret: cli.GetSecret(), Domain: cli.GetDomain(), UserID: cli.GetUserID()}
 	v, err := json.Marshal(cv)
 	if err != nil {
 		return
 	}
-	result := cs.cli.HSet(RedisKeyOauth2Client, client.ID, v)
+	result := cs.cli.HSet(RedisKeyOauth2Client, cli.GetID(), v)
 	if verr := result.Err(); verr != nil {
 		if verr != redis.Nil {
 			err = verr
