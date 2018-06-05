@@ -12,7 +12,7 @@ import (
 
 const RedisKeyOauth2Client = "oauth2_client"
 
-// TokenStore redis token store
+// RedisTokenStore redis token store
 type RedisClientStore struct {
 	cli *redis.Client
 }
