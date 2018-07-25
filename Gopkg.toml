@@ -24,6 +24,10 @@
 #   unused-packages = true
 
 [[constraint]]
+  name = "github.com/go2s/o2x"
+  branch = "master"
+
+[[constraint]]
   name = "github.com/go-redis/redis"
   version = "v6.0.0"
 

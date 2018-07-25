@@ -13,14 +13,14 @@
     "internal/singleflight",
     "internal/util"
   ]
-  revision = "83fb42932f6145ce52df09860384a4653d2d332a"
-  version = "v6.12.0"
+  revision = "480db94d33e6088e08d628833b6c0705451d24bb"
+  version = "v6.13.2"
 
 [[projects]]
   branch = "master"
   name = "github.com/gopherjs/gopherjs"
   packages = ["js"]
-  revision = "8dffc02ea1cb8398bb73f30424697c60fcf8d4c5"
+  revision = "0892b62f0d9fb5857760c3cfca837207185117ee"
 
 [[projects]]
   name = "github.com/jtolds/gls"
@@ -60,8 +60,8 @@
     ".",
     "models"
   ]
-  revision = "6f608a6e0307a97455db74fa5297fd38cb249aa7"
-  version = "v3.8.4"
+  revision = "196a0236d070cac5c2db1fd5cef194ffcf81f676"
+  version = "v3.8.5"
 
 [solve-meta]
   analyzer-name = "dep"
