@@ -2,6 +2,7 @@
 
 
 [[projects]]
+  digest = "1:a6cdfb0c4a4d3e0893e52d305685fff4c79b9199dcbf8f29b11218a0da761b70"
   name = "github.com/go-redis/redis"
   packages = [
     ".",
@@ -11,61 +12,80 @@
     "internal/pool",
     "internal/proto",
     "internal/singleflight",
-    "internal/util"
+    "internal/util",
   ]
+  pruneopts = ""
   revision = "480db94d33e6088e08d628833b6c0705451d24bb"
   version = "v6.13.2"
 
 [[projects]]
   branch = "master"
+  digest = "1:6919f4f0d769f1e797a3e85f58fbb6f6238fbe434e55638c24ee572aff90e1fc"
   name = "github.com/gopherjs/gopherjs"
   packages = ["js"]
+  pruneopts = ""
   revision = "0892b62f0d9fb5857760c3cfca837207185117ee"
 
 [[projects]]
+  digest = "1:d8ead22d381cfed54d53be7d935eb0f9f2b75889a4fb595802844b805dc13b87"
   name = "github.com/jtolds/gls"
   packages = ["."]
+  pruneopts = ""
   revision = "77f18212c9c7edc9bd6a33d383a7b545ce62f064"
   version = "v4.2.1"
 
 [[projects]]
+  digest = "1:7f569d906bdd20d906b606415b7d794f798f91a62fcfb6a4daa6d50690fb7a3f"
   name = "github.com/satori/go.uuid"
   packages = ["."]
+  pruneopts = ""
   revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
   version = "v1.2.0"
 
 [[projects]]
+  digest = "1:c686b5040ec4be5005e10020ce3d1d7f888bfae796a039addf7d9071d8776be8"
   name = "github.com/smartystreets/assertions"
   packages = [
     ".",
     "internal/go-render/render",
-    "internal/oglematchers"
+    "internal/oglematchers",
   ]
+  pruneopts = ""
   revision = "7678a5452ebea5b7090a6b163f844c133f523da2"
   version = "1.8.3"
 
 [[projects]]
+  digest = "1:dd808f0f1628ff85a1b54424d3e6a61c54a87353d5063b9b5c82ad360f0346d5"
   name = "github.com/smartystreets/goconvey"
   packages = [
     "convey",
     "convey/gotest",
-    "convey/reporting"
+    "convey/reporting",
   ]
+  pruneopts = ""
   revision = "9e8dc3f972df6c8fcc0375ef492c24d0bb204857"
   version = "1.6.3"
 
 [[projects]]
+  digest = "1:2fab777c779429b5c11894424308fdab4c3e30bd8701fb5d8e84827f6002f0df"
   name = "gopkg.in/oauth2.v3"
   packages = [
     ".",
-    "models"
+    "models",
   ]
+  pruneopts = ""
   revision = "196a0236d070cac5c2db1fd5cef194ffcf81f676"
   version = "v3.8.5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c3af46dc8038f26d3851f97818fe0366b18caf2092bc397ff04b873df8e9c261"
+  input-imports = [
+    "github.com/go-redis/redis",
+    "github.com/satori/go.uuid",
+    "github.com/smartystreets/goconvey/convey",
+    "gopkg.in/oauth2.v3",
+    "gopkg.in/oauth2.v3/models",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
